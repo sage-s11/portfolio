@@ -1,0 +1,10 @@
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "My Portfolio"
+theme = "PaperMod"
+
+[params]
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  homeInfoParams = { Title = "Welcome to My Portfolio", Content = "I build cool stuff. Check out my projects and blogs." }

@@ -1,0 +1,26 @@
+name: Update LeetCode Stats
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Fetch LeetCode Stats
+        run: |
+          curl -s "https://leetcode-stats-api.herokuapp.com/s4gex" > data/leetcode.json
+
+      - name: Commit & Push Changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add data/leetcode.json
+          git commit -m "Update LeetCode stats" || exit 0
+          git push
