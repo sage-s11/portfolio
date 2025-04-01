@@ -1,0 +1,130 @@
+/* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff !important; /* Force background color to be white */
+    color: #333; /* Dark text for contrast */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #2d2d2d !important; /* Force dark background */
+    color: #f9f9f9; /* Lighter text color for dark mode */
+}
+
+/* Dark Mode Toggle Button */
+.mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 10%;
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Blog Sections */
+.featured-blogs, .all-blogs {
+    padding: 80px 10%;
+    width: 100%;
+}
+
+.featured-blogs h2, .all-blogs h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+/* Blog Cards */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 50px;
+    justify-content: center;
+}
+
+.blog-grid article {
+    background: #fff;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease-in-out;
+}
+
+.blog-grid article:hover {
+    transform: scale(1.04);
+}
+
+/* Blog Links */
+.all-blogs ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.all-blogs li {
+    margin-bottom: 15px;
+}
+
+.all-blogs a {
+    text-decoration: none;
+    font-size: 22px;
+    color: #0077cc;
+    transition: color 0.3s ease-in-out;
+}
+
+.all-blogs a:hover {
+    color: #004a99;
+}
+
+/* Toggle Mode for Dark/Light */
+body {
+    background-color: #ffffff !important; /* Force white background in light mode */
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #2d2d2d !important;
+    color: #f9f9f9;
+}
+
+body.dark-mode .hero {
+    background-color: #3a3a3a !important;
+}
+
+body.dark-mode .blog-grid article {
+    background-color: #444 !important;
+    color: #fff;
+}
+
+body.dark-mode .all-blogs a {
+    color: #f0f0f0;
+}
+
+/* Prevent Inheritance Issues */
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+/* Main Content Padding */
+.main, .content {
+    width: 95%;
+    margin: auto;
+}

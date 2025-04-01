@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff"> 
-    <title>My New Hugo Site</title>
+    <meta name="theme-color" content="#ffffff"> <!-- Add theme color for light mode -->
+    <title>{{ .Site.Title }}</title>
 
-    
+    <!-- Include Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
@@ -21,7 +20,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100 vh    ;  
+            min-height: 100 vh    ; /* Change to min-height for flexibility */
             margin: 0;
             background-color: #fff;
             color: #333;
@@ -55,37 +54,37 @@
             margin-top: -105px;
         }
 
-         
+        /* Text reveal animation */
         @keyframes textReveal {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-         
+        /* Dark Mode Styles */
         body.dark-mode {
-            background-color: #2d2d2d !important;  
-            color: #FFFAFA !important;  
+            background-color: #2d2d2d !important; /* Set dark mode background */
+            color: #FFFAFA !important; /* Set light text color for dark mode */
         }
     </style>
 </head>
 <body>
 
-
+<!-- Dark Mode Toggle Button -->
 <div id="mode-toggle" class="mode-toggle" onclick="toggleDarkMode()">
     🌙
 </div>
 
 <h1><span class="first-name">Shreyas</span> <span class="last-name">Sneh</span></h1>
-<p>Software Engineer | Problem Solver | Tech Enthusiast</p>
+<p>{{ .Site.Params.hero_subtext }}</p>
 
-
+<!-- Your other content here -->
 
 <script src="/js/script.js"></script>
 <script>
-    
+    // Function to toggle dark mode
     function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode'); 
-        
+        document.body.classList.toggle('dark-mode'); // Toggle the dark-mode class on the body
+        // Save the dark mode state in localStorage (so it persists)
         if (document.body.classList.contains('dark-mode')) {
             localStorage.setItem('darkMode', 'enabled');
         } else {
@@ -93,7 +92,7 @@
         }
     }
 
-    
+    // Check for dark mode preference on page load
     if (localStorage.getItem('darkMode') === 'enabled') {
         document.body.classList.add('dark-mode');
     }

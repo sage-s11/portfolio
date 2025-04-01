@@ -1,10 +1,11 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
-theme = "PaperMod"
 
 [params]
-  ShowReadingTime = true
-  ShowBreadCrumbs = true
-  ShowPostNavLinks = true
-
+first_name = "shreyas"
+last_name = "sneh"
+hero_subtext = "Software Engineer | Problem Solver | Tech Enthusiast"
+ShowReadingTime = true
+ShowBreadCrumbs = true
+ShowPostNavLinks = true
