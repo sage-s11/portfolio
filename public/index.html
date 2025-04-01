@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <link href="/css/custom.css" rel="stylesheet">
 
     <style>
@@ -21,7 +23,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100 vh    ;  
+            min-height: 100vh;
             margin: 0;
             background-color: #fff;
             color: #333;
@@ -63,9 +65,65 @@
 
          
         body.dark-mode {
-            background-color: #2d2d2d !important;  
-            color: #FFFAFA !important;  
+            background-color: #2d2d2d !important;
+            color: #FFFAFA !important;
         }
+
+         
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 80%;
+            margin-top: 50px;
+        }
+
+         
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            width: 20%;
+        }
+
+        .icon-grid a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #333;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .icon-grid a:hover {
+            color: #ff4081;
+            transform: scale(1.1);
+        }
+
+         
+        .profile-summary {
+            font-family: 'Poppins', sans-serif;   
+            font-size: 1.2rem;
+            font-weight: 400;
+            width: 70%;
+            padding: 40px;
+            border-radius: 10px;
+
+        }
+
+        .profile-summary h2 {
+            margin-bottom: 15px;
+        }
+
+        body.dark-mode .icon-grid a {
+        color: #FFFAFA;  
+        }
+
+        body.dark-mode .icon-grid a:hover {
+            color: #ff4081;
+            text-shadow: 0 0 10px rgba(255, 64, 129, 0.8);
+        }
+
     </style>
 </head>
 <body>
@@ -79,6 +137,23 @@
 <p>Software Engineer | Problem Solver | Tech Enthusiast</p>
 
 
+<div class="main-container">
+    
+    <div class="icon-grid">
+        <a href="https://www.linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://leetcode.com" target="_blank" title="LeetCode"><i class="fas fa-code"></i></a>
+        <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+
+        <a href="https://www.codechef.com" target="_blank" title="CodeChef"><i class="fas fa-utensils"></i></a>
+        <a href="https://dev.to" target="_blank" title="Dev.to"><i class="fab fa-dev"></i></a>
+        <a href="https://hashnode.com" target="_blank" title="Hashnode"><i class="fas fa-hashtag"></i></a>
+    </div>
+
+    
+    <div class="profile-summary">\
+        <p>Short bio or profile summary goes here. You can include your skills, interests, or any important details about yourself.</p>
+    </div>
+</div>
 
 <script src="/js/script.js"></script>
 <script>

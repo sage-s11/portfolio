@@ -3,7 +3,7 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #FFFAFA !important; /* Force background color to be white */
+    background-color: #ffffff !important; /* Force background color to be white */
     color: #333; /* Dark text for contrast */
     transition: background-color 0.3s, color 0.3s;
 }
@@ -34,7 +34,7 @@ body.dark-mode {
     justify-content: space-between;
     align-items: center;
     padding: 80px 10%;
-    background-color: #FFFAFA !important;
+    background-color: #ffffff !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 100%;
 }
@@ -95,7 +95,7 @@ body.dark-mode {
 
 /* Toggle Mode for Dark/Light */
 body {
-    background-color: #FFFAFA !important; /* Force white background in light mode */
+    background-color: #ffffff !important; /* Force white background in light mode */
 }
 
 /* Dark Mode */
