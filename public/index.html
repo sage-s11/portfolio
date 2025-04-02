@@ -18,22 +18,19 @@
 
     <style>
         body {
-            font-family: 'Roboto Mono', monospace;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #fff;
-            color: #333;
-            text-align: center;
-            transition: background-color 0.3s, color 0.3s;
-        }
+        font-family: 'Roboto Mono', monospace;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #fff;
+        color: #333;
+        text-align: center;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
 
         h1 {
             font-size: 8rem;
-            margin-top: -20px;
+            margin-top: 100px;
             letter-spacing: -0.4px;
             text-transform: uppercase;
             padding-top: 0px;
@@ -70,14 +67,17 @@
         }
 
          
-        .main-container {
-         display: grid;
-        grid-template-columns: 1fr 4fr;  
+       .main-container {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
         align-items: center;
-        width: 80%;
-        margin-top: 50px;
+        width: 100%;
+        padding-top:50px;
+        max-width: 1200px;
+<!--        margin: auto;-->
         gap: 30px;
-}
+        }
+
 
 
          
@@ -129,6 +129,83 @@
             text-shadow: 0 0 10px rgba(255, 64, 129, 0.8);
         }
 
+        .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;  
+    min-height: 100vh;  
+    width: 100%;
+}
+
+
+
+        .next-section {
+        margin-top: 300px;  
+        padding: 20px;
+        max-width: 100%;
+        font-style: italic;
+        opacity: 0.8;
+        }
+
+
+<!--    Responsive for other devices-->
+ 
+@media (max-width: 1024px) {  
+    .main-container {
+        grid-template-columns: 1fr 2fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .icon-grid {
+        width: 30%;  
+        padding-left: 0;
+    }
+
+    h1 {
+        font-size: 6rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {  
+    .main-container {
+        grid-template-columns: 1fr;  
+        gap: 10px;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .icon-grid {
+        grid-template-columns: repeat(3, 1fr);  
+        width: 100%;
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 4rem;
+        margin-top: 50px;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-top: -50px;
+    }
+
+    .profile-summary p {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    .next-section {
+        margin-top: 150px;  
+    }
+}
+
     </style>
 </head>
 <body>
@@ -141,6 +218,7 @@
 <h1><span class="first-name">Shreyas</span> <span class="last-name">Sneh</span></h1>
 <p>Software Engineer | Problem Solver | Tech Enthusiast</p>
 
+<div class="content-wrapper">
 
 <div class="main-container">
     
@@ -160,6 +238,12 @@
             I am passionate about delivering high-quality solutions that meet the requirements.
             Additionally I've contributed in testing robust APIs, collecting and storing API keys for automation teams.</p>
     </div>
+</div>
+<div class="next-section">
+    <p>As a Del Analyst, I have worked closely with clients to gather, define and draft requirements, delegating tasks to the operations team with ETAs. Contributed in setting up and migrating low latency DNS for over 50 applications. I have analyzed and drafted advanced reports on deliverables & SLAs.
+        I am passionate about delivering high-quality solutions that meet the requirements.
+        Additionally I've contributed in testing robust APIs, collecting and storing API keys for automation teams.</p>
+</div>
 </div>
 
 <script src="/js/script.js"></script>
