@@ -18,11 +18,12 @@ body.dark-mode {
 .mode-toggle {
     position: fixed;
     top: 20px;
-    right: 20px;
+    right: 40px; /* Increase this value */
     font-size: 24px;
     cursor: pointer;
     transition: transform 0.3s;
 }
+
 
 .mode-toggle:hover {
     transform: scale(1.1);

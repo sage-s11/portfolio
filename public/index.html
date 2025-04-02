@@ -108,7 +108,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: .9rem;
             font-weight: 500;
-             width: 100%;   
+             width: 90%;   
             margin: 0 auto;  
             text-align: center;
             color: #000000;
@@ -206,6 +206,24 @@
     }
 }
 
+
+
+         
+.main-container, h1, p {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+ 
+.scrolled .main-container {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+.scrolled h1, .scrolled p {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
     </style>
 </head>
 <body>
@@ -263,6 +281,18 @@
     if (localStorage.getItem('darkMode') === 'enabled') {
         document.body.classList.add('dark-mode');
     }
+
+    window.addEventListener("scroll", function () {
+    let scrollPos = window.scrollY;
+    let nextSection = document.querySelector(".next-section").offsetTop;
+
+    if (scrollPos >= nextSection / 2) { 
+        document.body.classList.add("scrolled");
+    } else {
+        document.body.classList.remove("scrolled");
+    }
+});
+
 </script>
 
 </body>
