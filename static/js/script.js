@@ -1,31 +1,29 @@
-// Get the mode toggle element
-const modeToggle = document.getElementById("mode-toggle");
+// Select the toggle button, body, and navbar
+const toggleContainer = document.getElementById('theme-toggle');
+const body = document.getElementById('theme');
+const navbar = document.querySelector('nav');
 
-// Check the current mode from localStorage, default to light mode
-let isDarkMode = localStorage.getItem("dark-mode") === "true";
+// Event Listener for Toggle Button
+toggleContainer.addEventListener('click', () => {
+  const isDarkMode = body.classList.contains('dark-mode');
 
-// Apply the dark mode class based on the stored preference
-if (isDarkMode) {
-    document.body.classList.add("dark-mode");
-    modeToggle.innerHTML = "🌞"; // Change to sun emoji for dark mode
-} else {
-    document.body.classList.add("light-mode"); // Default to light mode
-    modeToggle.innerHTML = "🌙"; // Change to moon emoji for light mode
-}
+  if (isDarkMode) {
+    // Switch to Light Mode
+    body.classList.remove('dark-mode');
+    body.classList.add('light-mode');
+    toggleContainer.classList.remove('dark');
 
-// Add a click event to toggle dark mode
-modeToggle.addEventListener("click", () => {
-    isDarkMode = !isDarkMode; // Toggle the mode
-    if (isDarkMode) {
-        document.body.classList.add("dark-mode");
-        document.body.classList.remove("light-mode");
-        modeToggle.innerHTML = "🌞"; // Change to sun emoji for dark mode
-    } else {
-        document.body.classList.add("light-mode");
-        document.body.classList.remove("dark-mode");
-        modeToggle.innerHTML = "🌙"; // Change to moon emoji for light mode
-    }
+    // Update navbar to light mode
+    navbar.style.backgroundColor = '#f2f2f2'; // Light gray background
+    navbar.style.color = '#000'; // Black text
+  } else {
+    // Switch to Dark Mode
+    body.classList.remove('light-mode');
+    body.classList.add('dark-mode');
+    toggleContainer.classList.add('dark');
 
-    // Store the current mode preference in localStorage
-    localStorage.setItem("dark-mode", isDarkMode);
+    // Update navbar to dark mode
+    navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; // Dark background
+    navbar.style.color = '#fff'; // White text
+  }
 });
