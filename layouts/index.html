@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="theme-color" content="#ffffff"> <!-- Add theme color for light mode -->
     <title>{{ .Site.Title }}</title>
 
@@ -15,284 +16,38 @@
 
     <link href="/css/custom.css" rel="stylesheet">
 
-    <style>
-        body {
-        font-family: 'Roboto Mono', monospace;
-        min-height: 100vh;
-        margin: 0;
-        background-color: #fff;
-        color: #333;
-        text-align: center;
-        transition: background-color 0.3s, color 0.3s;
-    }
+    <title>Toggle Theme with Sun & Moon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/custom.css">
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-
-        h1 {
-            font-size: 8rem;
-            margin-top: 100px;
-            letter-spacing: -0.4px;
-            text-transform: uppercase;
-            padding-top: 0px;
-            animation: textReveal 2s ease-in-out forwards;
-        }
-
-        h1 span.first-name {
-            font-family: 'Roboto Mono', monospace;
-            font-weight: 300;
-        }
-
-        h1 span.last-name {
-            font-family: 'Righteous', sans-serif;
-            font-weight: 300;
-        }
-
-        p {
-            font-size: 1.3rem;
-            font-style: italic;
-            opacity: 0.6;
-            margin-top: -105px;
-        }
-
-        /* Text reveal animation */
-        @keyframes textReveal {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Dark Mode Styles */
-        body.dark-mode {
-            background-color: #2d2d2d !important;
-            color: #FFFAFA !important;
-        }
-
-        /* Flexbox Layout for Icon Grid and Profile Summary */
-       .main-container {
-        display: grid;
-        grid-template-columns: 1fr 4fr;
-        align-items: center;
-        width: 100%;
-        padding-top:50px;
-        max-width: 1200px;
-<!--        margin: auto;-->
-        gap: 30px;
-        }
-
-
-
-        /* Icon Grid Styles */
-        .icon-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding-left: 80px;
-            width: 20%;
-        }
-
-        .icon-grid a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            color: #333;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .icon-grid a:hover {
-            color: #ff4081;
-            transform: scale(1.1);
-        }
-
-        /* Profile Summary Section */
-        .profile-summary p{
-            font-family: 'Montserrat', sans-serif;
-            font-size: .9rem;
-            font-weight: 500;
-             width: 90%;  /* Reduce width so it's not too stretched */
-            margin: 0 auto; /* Centers it properly */
-            text-align: center;
-            color: #000000;
-            border-radius: 10px;
-
-        }
-
-        body.dark-mode .profile-summary p{
-            color:#ffffff;
-        }
-
-        body.dark-mode .icon-grid a {
-        color: #FFFAFA; /* Light color for dark mode */
-        }
-
-        body.dark-mode .icon-grid a:hover {
-            color: #ff4081;
-            text-shadow: 0 0 10px rgba(255, 64, 129, 0.8);
-        }
-
-        .content-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Make sure new sections push content down */
-    min-height: 100vh; /* Ensure it fills viewport */
-    width: 100%;
-}
-
-
-
-        .next-section {
-        margin-top: 300px; /* Adds spacing */
-        padding: 20px;
-        max-width: 100%;
-        font-style: italic;
-        opacity: 0.8;
-        }
-
-
-<!--    Responsive for other devices-->
-/* Responsive Design */
-@media (max-width: 1024px) { /* Tablets */
-    .main-container {
-        grid-template-columns: 1fr 2fr;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .icon-grid {
-        width: 30%; /* Adjust icon grid width */
-        padding-left: 0;
-    }
-
-    h1 {
-        font-size: 6rem;
-    }
-
-    p {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 768px) { /* Mobile */
-    .main-container {
-        grid-template-columns: 1fr; /* Stack sections */
-        gap: 10px;
-        text-align: center;
-        padding: 15px;
-    }
-
-    .icon-grid {
-        grid-template-columns: repeat(3, 1fr); /* Keep a compact icon grid */
-        width: 100%;
-        justify-content: center;
-    }
-
-    h1 {
-        font-size: 4rem;
-        margin-top: 50px;
-    }
-
-    p {
-        font-size: 1rem;
-        margin-top: -50px;
-    }
-
-    .profile-summary p {
-        font-size: 0.85rem;
-        padding: 10px;
-    }
-
-    .next-section {
-        margin-top: 150px; /* Reduce spacing */
-    }
-}
-
-
-
-        /* Initial state - Fully visible */
-.main-container, h1, p {
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-/* Apply fade-out and slide effect */
-.scrolled .main-container {
-    opacity: 0;
-    transform: translateY(-50px);
-}
-
-.scrolled h1, .scrolled p {
-    opacity: 0;
-    transform: translateY(-30px);
-}
-
-    </style>
 </head>
-<body>
+<body class="bg-gray-800 text-gray-300 flex flex-col items-center justify-center min-h-screen transition-colors duration-500" id="theme">
+<nav class="bg-gray-700 shadow-md rounded-full px-6 py-2 fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
+    <ul class="navbar-hover-effect flex space-x-4">
+        <li>
+            <a href="#" class="text-sm neon-hover px-4 py-1 rounded">Home</a>
+        </li>
+        <li>
+            <a href="#" class="text-sm neon-hover px-4 py-1 rounded">About</a>
+        </li>
+        <li>
+            <a href="#" class="text-sm neon-hover px-4 py-1 rounded">Services</a>
+        </li>
+        <li>
+            <a href="#" class="text-sm neon-hover px-4 py-1 rounded">Contact</a>
+        </li>
+    </ul>
+</nav>
 
-<!-- Dark Mode Toggle Button -->
-<div id="mode-toggle" class="mode-toggle" onclick="toggleDarkMode()">
-    🌙
-</div>
-
-<h1><span class="first-name">Shreyas</span> <span class="last-name">Sneh</span></h1>
-<p>{{ .Site.Params.hero_subtext }}</p>
-
-<div class="content-wrapper">
-<!-- Flexbox Container for Icons and Profile Summary -->
-<div class="main-container">
-    <!-- Icon Grid Section -->
-    <div class="icon-grid">
-        <a href="https://www.linkedin.com" target="https://www.linkedin.com/in/shreyas-s-047307347/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://leetcode.com" target="https://leetcode.com/u/s4gex/" title="LeetCode"><i class="fas fa-code"></i></a>
-        <a href="https://github.com" target="https://github.com/sage-s11" title="GitHub"><i class="fab fa-github"></i></a>
-
-        <a href="https://www.codechef.com" target="https://www.codechef.com/users/s4gex" title="CodeChef"><i class="fas fa-utensils"></i></a>
-        <a href="https://dev.to" target="_blank" title="Dev.to"><i class="fab fa-dev"></i></a>
-        <a href="https://hashnode.com" target="https://hashnode.com/@s4ge" title="Hashnode"><i class="fas fa-hashtag"></i></a>
-    </div>
-
-    <!-- Profile Summary -->
-    <div class="profile-summary">
-        <p>As a Del Analyst, I have worked closely with clients to gather, define and draft requirements, delegating tasks to the operations team with ETAs. Contributed in setting up and migrating low latency DNS for over 50 applications. I have analyzed and drafted advanced reports on deliverables & SLAs.
-            I am passionate about delivering high-quality solutions that meet the requirements.
-            Additionally I've contributed in testing robust APIs, collecting and storing API keys for automation teams.</p>
-    </div>
-</div>
-<div class="next-section">
-    <p>As a Del Analyst, I have worked closely with clients to gather, define and draft requirements, delegating tasks to the operations team with ETAs. Contributed in setting up and migrating low latency DNS for over 50 applications. I have analyzed and drafted advanced reports on deliverables & SLAs.
-        I am passionate about delivering high-quality solutions that meet the requirements.
-        Additionally I've contributed in testing robust APIs, collecting and storing API keys for automation teams.</p>
-</div>
+<div class="toggle-container" id="theme-toggle">
+    <div class="toggle-icon sun">☀️</div>
+    <div class="toggle-icon moon">🌙</div>
+    <div class="toggle-knob"></div>
 </div>
 
 <script src="/js/script.js"></script>
-<script>
-    // Function to toggle dark mode
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode'); // Toggle the dark-mode class on the body
-        // Save the dark mode state in localStorage (so it persists)
-        if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            localStorage.removeItem('darkMode');
-        }
-    }
-
-    // Check for dark mode preference on page load
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-    }
-
-    window.addEventListener("scroll", function () {
-    let scrollPos = window.scrollY;
-    let nextSection = document.querySelector(".next-section").offsetTop;
-
-    if (scrollPos >= nextSection / 2) { // Trigger animation at half the scroll
-        document.body.classList.add("scrolled");
-    } else {
-        document.body.classList.remove("scrolled");
-    }
-});
-
-</script>
 
 </body>
 </html>

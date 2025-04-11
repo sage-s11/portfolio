@@ -1,17 +1,19 @@
-/* General Styles */
+/* General Styles for the Page */
 body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff !important; /* Force background color to be white */
-    color: #333; /* Dark text for contrast */
-    transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* Dark Mode Styles */
+body.light-mode {
+  background-color: #fff;
+  color: #000;
+}
+
 body.dark-mode {
-    background-color: #2d2d2d !important; /* Force dark background */
-    color: #f9f9f9; /* Lighter text color for dark mode */
+  background-color: #121212;
+  color: #fff;
 }
 
 /* Dark Mode Toggle Button */
@@ -27,105 +29,173 @@ body.dark-mode {
 
 .mode-toggle:hover {
     transform: scale(1.1);
+    }
+/* Navbar Styles */
+nav {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  transition: background-color 0.1s ease, color 0.5s ease, box-shadow 0.5s ease;
+  z-index: 50;
 }
 
-/* Hero Section */
-.hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 80px 10%;
-    background-color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
+/* Navbar Items */
+.navbar-hover-effect {
+  display: flex;
+  gap: 20px;
+  position: relative;
 }
 
-/* Blog Sections */
-.featured-blogs, .all-blogs {
-    padding: 80px 10%;
-    width: 100%;
+/* Navbar Links */
+.navbar-hover-effect a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 16px;
+  color: inherit;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 30px; /* Rounded corners to match navbar */
+  background-color: transparent;
+  transition: all 0.4s ease-in-out;
+  z-index: 10;
 }
 
-.featured-blogs h2, .all-blogs h2 {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 40px;
+/* Hover Effect: Soft Red Fluid Transition */
+.navbar-hover-effect a:hover {
+  background-color: rgba(255, 99, 71, 0.8); /* Soft red hover background */
+  color: #fff; /* White text on hover */
+  box-shadow: 0 4px 10px rgba(255, 99, 71, 0.6); /* Glow effect */
+  transition: all 0.6s ease-in-out; /* Smoother transition for hover */
 }
 
-/* Blog Cards */
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 50px;
-    justify-content: center;
+/* Fluid-Like Effect: Shared Background Transition */
+.navbar-hover-effect a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 99, 71, 0.8); /* Soft red background */
+  border-radius: 30px; /* Match border radius of navbar */
+  transform: scale(0); /* Start with no scale */
+  z-index: -1;
+  transition: transform 0.8s ease-in-out; /* Smooth scaling effect */
 }
 
-.blog-grid article {
-    background: #fff;
-    padding: 30px;
-    border-radius: 14px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease-in-out;
+.navbar-hover-effect a:hover::before {
+  transform: scale(1); /* Fully expand the background */
+}
+/* Navbar Styles */
+.navbar {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
 }
 
-.blog-grid article:hover {
-    transform: scale(1.04);
+/* Light Mode Navbar */
+body.light-mode .navbar {
+  background-color: #f2f2f2; /* Slightly darker light background */
+  border: 1px solid #d1d1d1; /* Visible boundary */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  color: #000; /* Black text */
 }
 
-/* Blog Links */
-.all-blogs ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
+/* Dark Mode Navbar */
+body.dark-mode .navbar {
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+  border: 1px solid #333; /* Dark boundary */
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Subtle shadow for dark mode */
+  color: #fff; /* White text */
 }
 
-.all-blogs li {
-    margin-bottom: 15px;
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
 }
 
-.all-blogs a {
-    text-decoration: none;
-    font-size: 211px;
-    color: #0077cc;
-    transition: color 0.3s ease-in-out;
+.navbar ul li a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
-.all-blogs a:hover {
-    color: #004a99;
+/* Hover Effects for Links */
+body.light-mode .navbar ul li a:hover {
+  color: #555; /* Slightly darker hover color for light mode */
 }
 
-/* Toggle Mode for Dark/Light */
-body {
-    background-color: #ffffff !important; /* Force white background in light mode */
+body.dark-mode .navbar ul li a:hover {
+  color: #ccc; /* Slightly lighter hover color for dark mode */
 }
 
-/* Dark Mode */
-body.dark-mode {
-    background-color: #2d2d2d !important;
-    color: #f9f9f9;
+/* Toggle Container */
+.toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 30px;
+  background-color: #e0e0e0;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.4s ease;
 }
 
-body.dark-mode .hero {
-    background-color: #3a3a3a !important;
+.toggle-container.dark {
+  background-color: #333;
 }
 
-body.dark-mode .blog-grid article {
-    background-color: #444 !important;
-    color: #fff;
+/* Toggle Icons */
+.toggle-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border-radius: 50%;
+  transition: color 0.4s ease, transform 0.4s ease;
 }
 
-body.dark-mode .all-blogs a {
-    color: #f0f0f0;
+.sun {
+  color: #ffd700;
 }
 
-/* Prevent Inheritance Issues */
-html, body {
-    width: 100%;
-    height: 100%;
+.moon {
+  color: #999;
 }
 
-/* Main Content Padding */
-.main, .content {
-    width: 95%;
-    margin: auto;
+/* Toggle Knob */
+.toggle-knob {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+.toggle-container.dark .toggle-knob {
+  transform: translateX(30px);
+  background-color: #ffd700;
+}
+
+.toggle-container.dark .moon {
+  color: #fff;
 }
