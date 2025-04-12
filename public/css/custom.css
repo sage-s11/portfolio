@@ -213,6 +213,7 @@ body.dark-mode .navbar ul li a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding-top: 95px;
   margin-top: -20px;
 }
 
@@ -359,4 +360,107 @@ body.light-mode {
 body.dark-mode {
   --icon-color: #ccc; /* Light icons for dark theme */
   --hover-color: #1da1f2; /* Light blue hover color */
+}
+
+
+
+/* General Section Styling */
+.section {
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Invisible by default */
+  transform: translateY(50px); /* Slightly below viewport */
+  transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth transition */
+}
+
+/* Active Class for Visible Sections */
+.section.active {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move into position */
+}
+
+/* Blogs Section */
+#blogs-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Light background for contrast */
+}
+
+/* Blogs Container */
+.blogs-container {
+  display: flex;
+  width: 80%;
+  gap: 2rem; /* Space between cards and vertical text */
+}
+
+/* Cards Layout (Left Side) */
+.cards-layout {
+  display: grid;
+  width: 80%; /* 80% of the container */
+  grid-template-columns: repeat(3, 1fr); /* 3 uneven columns */
+  gap: 1rem; /* Space between cards */
+}
+
+.card {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Uneven Card Sizes */
+.card-large {
+  grid-column: span 2; /* Span two columns */
+  height: 300px;
+}
+
+.card-medium {
+  height: 200px;
+}
+
+.card-small {
+  height: 150px;
+}
+
+/* Vertical Text (Right Side) */
+.vertical-text {
+  width: 20%; /* 20% of the container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.vertical-text span {
+  writing-mode: vertical-rl; /* Rotate text vertically */
+  transform: rotate(180deg); /* Flip the text to read top-down */
+  margin: 0.2rem 0; /* Space between letters */
+}
+
+
+#hero-section {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: flex-start; /* Align content to the top */
+  padding-top: 35px; /* Adjust padding to create space from the top */
+  gap: 2rem; /* Add spacing between center-container and social-icons */
+}
+
+/* Styling for Social Icons (Optional Enhancements) */
+.social-icons {
+  margin-top: 1rem; /* Add spacing between social icons and center-container */
 }

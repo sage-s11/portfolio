@@ -87,3 +87,27 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add scroll event listener to manage fade-in and fade-out
     window.addEventListener("scroll", fadeInName);
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".section");
+
+  const observerOptions = {
+    root: null, // Use viewport as root
+    threshold: 0.1, // Trigger when 10% of the section is visible
+  };
+
+  const observerCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active"); // Add active class when the section is in view
+      } else {
+        entry.target.classList.remove("active"); // Remove active class when the section exits
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  sections.forEach((section) => observer.observe(section));
+});
