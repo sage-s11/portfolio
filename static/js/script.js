@@ -51,20 +51,21 @@ window.addEventListener('DOMContentLoaded', () => {
   const el = document.querySelector('.typewriter');
   if (!el) return;
 
-  const text = el.textContent.trim();
+  const text = el.getAttribute('data-text') || el.textContent.trim();
   el.textContent = ''; // Clear it before animating
+  el.style.fontFamily = "'Courier New', monospace"; // Re-apply just in case
 
   let i = 0;
   function type() {
     if (i < text.length) {
       el.textContent += text.charAt(i);
       i++;
-      setTimeout(type, 60); // Adjust speed here
+      setTimeout(type, 80);
     }
   }
-
-  type(); // Start animation
+  type();
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const nameElement = document.querySelector(".name");

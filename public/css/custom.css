@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Deutschlander 2.0';
+  src: url('/fonts/deutschlander-2-0.regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* General Styles for the Page */
 body {
   margin: 0;
@@ -206,12 +213,13 @@ body.dark-mode .navbar ul li a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin-top: -50px;
 }
 
 /* Name Styling */
 .name {
   display: flex;
-  gap: 0.5rem;
+  gap: 2rem;
   justify-content: center;
   font-size: 4rem;
   margin: 0.5rem 0;
@@ -221,13 +229,13 @@ body.dark-mode .navbar ul li a:hover {
 }
 
 .first-name {
-  font-family: 'Oswald', sans-serif;
-  font-size: 5.5rem; /* Slightly bigger to give hierarchy */
+  font-family: 'Deutschlander 2.0', sans-serif;/* Use Redound font */
+  font-size: 10rem; /* Slightly bigger to give hierarchy */
 }
 
 .last-name {
-  font-family: 'Poppins', sans-serif;
-  font-size: 5rem;
+  font-family: 'Deutschlander 2.0', sans-serif;/* Use Redound font */
+  font-size: 10rem;
 }
 
 /* Fade-in animation */
@@ -244,17 +252,18 @@ body.dark-mode .navbar ul li a:hover {
 
 /* Typewriter Styling */
 .typewriter {
-  font-family: 'Courier New', monospace;
+  font-family: 'Courier New', monospace !important;
   font-size: 1.1rem;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 2px solid black;
+  border-right: 2px solid currentColor;
   animation: blink-caret 0.75s step-end infinite;
-  width: 58ch;
-  max-width: 90vw;
+  width: fit-content; /* Don't use ch unless you *really* need to */
   margin: 0 auto;
   text-align: center;
+  display: inline-block;
 }
+
 
 @keyframes blink-caret {
   0%, 100% { border-color: transparent; }
