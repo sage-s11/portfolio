@@ -9,6 +9,11 @@ const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
   body.classList.remove('light-mode', 'dark-mode');
   body.classList.add(savedTheme);
+
+  // Add the 'dark' class to the toggle if the saved theme is dark-mode
+  if (savedTheme === 'dark-mode') {
+    toggleContainer.classList.add('dark');
+  }
 } else {
   body.classList.add('light-mode'); // Default to light mode
 }
@@ -18,10 +23,12 @@ toggleContainer.addEventListener('click', () => {
   if (body.classList.contains('light-mode')) {
     body.classList.remove('light-mode');
     body.classList.add('dark-mode');
+    toggleContainer.classList.add('dark'); // Add 'dark' class for toggle animation
     localStorage.setItem('theme', 'dark-mode'); // Save theme to localStorage
   } else {
     body.classList.remove('dark-mode');
     body.classList.add('light-mode');
+    toggleContainer.classList.remove('dark'); // Remove 'dark' class for toggle animation
     localStorage.setItem('theme', 'light-mode'); // Save theme to localStorage
   }
 });
