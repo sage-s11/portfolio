@@ -1,29 +1,60 @@
-// Select the toggle button, body, and navbar
-const toggleContainer = document.getElementById('theme-toggle');
-const body = document.getElementById('theme');
-const navbar = document.querySelector('nav');
+// Select the toggle container
+const toggleContainer = document.querySelector('.toggle-container');
+const body = document.body;
 
-// Event Listener for Toggle Button
+// Check if there's a saved theme in localStorage
+const savedTheme = localStorage.getItem('theme');
+
+// Apply the saved theme or default to light mode
+if (savedTheme) {
+  body.classList.remove('light-mode', 'dark-mode');
+  body.classList.add(savedTheme);
+} else {
+  body.classList.add('light-mode'); // Default to light mode
+}
+
+// Handle the toggle button click event
 toggleContainer.addEventListener('click', () => {
-  const isDarkMode = body.classList.contains('dark-mode');
-
-  if (isDarkMode) {
-    // Switch to Light Mode
-    body.classList.remove('dark-mode');
-    body.classList.add('light-mode');
-    toggleContainer.classList.remove('dark');
-
-    // Update navbar to light mode
-    navbar.style.backgroundColor = '#f2f2f2'; // Light gray background
-    navbar.style.color = '#000'; // Black text
-  } else {
-    // Switch to Dark Mode
+  if (body.classList.contains('light-mode')) {
     body.classList.remove('light-mode');
     body.classList.add('dark-mode');
-    toggleContainer.classList.add('dark');
-
-    // Update navbar to dark mode
-    navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; // Dark background
-    navbar.style.color = '#fff'; // White text
+    localStorage.setItem('theme', 'dark-mode'); // Save theme to localStorage
+  } else {
+    body.classList.remove('dark-mode');
+    body.classList.add('light-mode');
+    localStorage.setItem('theme', 'light-mode'); // Save theme to localStorage
   }
+});
+
+// Typewriter animation
+function typeWriter(element, text, speed = 100) {
+  let i = 0;
+  element.textContent = ''; // Clear the static text
+  function type() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+  type();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const el = document.querySelector('.typewriter');
+  if (!el) return;
+
+  const text = el.textContent.trim();
+  el.textContent = ''; // Clear it before animating
+
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 60); // Adjust speed here
+    }
+  }
+
+  type(); // Start animation
 });

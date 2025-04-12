@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background-color: #fff;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -18,84 +19,28 @@ body.dark-mode {
 
 /* Dark Mode Toggle Button */
 .mode-toggle {
-    position: fixed;
-    top: 20px;
-    right: 40px; /* Increase this value */
-    font-size: 24px;
-    cursor: pointer;
-    transition: transform 0.3s;
+  position: fixed;
+  top: 20px;
+  right: 40px; /* Increase this value */
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
-
 
 .mode-toggle:hover {
-    transform: scale(1.1);
-    }
-/* Navbar Styles */
-nav {
-  padding: 10px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  transition: background-color 0.1s ease, color 0.5s ease, box-shadow 0.5s ease;
-  z-index: 50;
+  transform: scale(1.1);
 }
 
-/* Navbar Items */
-.navbar-hover-effect {
-  display: flex;
-  gap: 20px;
-  position: relative;
-}
-
-/* Navbar Links */
-.navbar-hover-effect a {
-  position: relative;
-  display: inline-block;
-  padding: 10px 16px;
-  color: inherit;
-  font-size: 14px;
-  text-decoration: none;
-  border-radius: 30px; /* Rounded corners to match navbar */
-  background-color: transparent;
-  transition: all 0.4s ease-in-out;
-  z-index: 10;
-}
-
-/* Hover Effect: Soft Red Fluid Transition */
-.navbar-hover-effect a:hover {
-  background-color: rgba(255, 99, 71, 0.8); /* Soft red hover background */
-  color: #fff; /* White text on hover */
-  box-shadow: 0 4px 10px rgba(255, 99, 71, 0.6); /* Glow effect */
-  transition: all 0.6s ease-in-out; /* Smoother transition for hover */
-}
-
-/* Fluid-Like Effect: Shared Background Transition */
-.navbar-hover-effect a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 99, 71, 0.8); /* Soft red background */
-  border-radius: 30px; /* Match border radius of navbar */
-  transform: scale(0); /* Start with no scale */
-  z-index: -1;
-  transition: transform 0.8s ease-in-out; /* Smooth scaling effect */
-}
-
-.navbar-hover-effect a:hover::before {
-  transform: scale(1); /* Fully expand the background */
-}
 /* Navbar Styles */
 .navbar {
-  padding: 10px 20px;
+  padding: 2px 10px; /* Reduced padding for a thinner navbar */
+  height: auto; /* Automatically adjust height based on content */
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
   transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+  z-index: 50;
 }
 
 /* Light Mode Navbar */
@@ -114,18 +59,70 @@ body.dark-mode .navbar {
   color: #fff; /* White text */
 }
 
+/* Navbar Items */
+.navbar-hover-effect {
+  display: flex;
+  gap: 15px; /* Reduced gap for a more compact look */
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Links */
+.navbar-hover-effect a {
+  position: relative;
+  display: inline-block;
+  padding: 4px 8px; /* Smaller padding for thinner links */
+  color: inherit;
+  font-size: 13px; /* Slightly smaller font size for a compact design */
+  text-decoration: none;
+  border-radius: 20px; /* Adjusted radius for links */
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+}
+
+/* Hover Effect: Soft Red Fluid Transition */
+.navbar-hover-effect a:hover {
+  background-color: rgba(255, 99, 71, 0.8); /* Soft red hover background */
+  color: #fff; /* White text on hover */
+  box-shadow: 0 4px 10px rgba(255, 99, 71, 0.6); /* Glow effect */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Fluid-Like Effect: Shared Background Transition */
+.navbar-hover-effect a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 99, 71, 1); /* Soft red background */
+  border-radius: 40px; /* Match border radius of navbar */
+  transform: scale(0); /* Start with no scale */
+  z-index: -1;
+  transition: transform 0.6s ease-in-out; /* Smooth scaling effect */
+}
+
+.navbar-hover-effect a:hover::before {
+  transform: scale(1); /* Fully expand the background */
+}
+
+/* Navbar List */
 .navbar ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 20px;
+  gap: 15px; /* Reduced gap for compact links */
 }
 
+/* Navbar Links in List */
 .navbar ul li a {
   text-decoration: none;
   color: inherit;
-  font-size: 16px;
+  font-size: 13px; /* Slightly smaller font size */
   transition: color 0.3s ease;
 }
 
@@ -199,3 +196,75 @@ body.dark-mode .navbar ul li a:hover {
 .toggle-container.dark .moon {
   color: #fff;
 }
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@400;700&display=swap');
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Name Styling */
+.name {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  font-size: 4rem;
+  margin: 0.5rem 0;
+}
+
+.first-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 5.5rem; /* Slightly bigger to give hierarchy */
+}
+
+.last-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 5rem;
+}
+
+/* Typewriter Styling */
+.typewriter {
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid black;
+  animation: blink-caret 0.75s step-end infinite;
+  width: 58ch;
+  max-width: 90vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: black; }
+}
+
+
+
+    /* Cursor blinking effect */
+    @keyframes blink {
+      from {
+        border-right-color: #fff;
+      }
+      to {
+        border-right-color: transparent;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .typewriter {
+        font-size: 2.5rem;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
