@@ -65,3 +65,24 @@ window.addEventListener('DOMContentLoaded', () => {
 
   type(); // Start animation
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const nameElement = document.querySelector(".name");
+
+    // Function to handle fade-in and fade-out
+    const fadeInName = () => {
+        if (window.scrollY === 0) {
+            nameElement.classList.add("fade-in");
+            nameElement.classList.remove("fade-out");
+        } else {
+            nameElement.classList.add("fade-out");
+            nameElement.classList.remove("fade-in");
+        }
+    };
+
+    // Trigger the fade-in effect on page load
+    fadeInName();
+
+    // Add scroll event listener to manage fade-in and fade-out
+    window.addEventListener("scroll", fadeInName);
+});

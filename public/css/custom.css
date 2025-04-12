@@ -215,6 +215,9 @@ body.dark-mode .navbar ul li a:hover {
   justify-content: center;
   font-size: 4rem;
   margin: 0.5rem 0;
+  opacity: 0; /* Start hidden */
+  transform: translateY(20px); /* Start slightly below */
+  transition: opacity 1s ease, transform 1s ease; /* Smooth fade-in and slide */
 }
 
 .first-name {
@@ -225,6 +228,18 @@ body.dark-mode .navbar ul li a:hover {
 .last-name {
   font-family: 'Poppins', sans-serif;
   font-size: 5rem;
+}
+
+/* Fade-in animation */
+.name.fade-in {
+  opacity: 1;
+  transform: translateY(0); /* Slide into position */
+}
+
+/* Fade-out animation (optional, if needed for scroll behavior) */
+.name.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 /* Typewriter Styling */
@@ -268,3 +283,4 @@ body.dark-mode .navbar ul li a:hover {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
