@@ -213,7 +213,7 @@ body.dark-mode .navbar ul li a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: -50px;
+  margin-top: -20px;
 }
 
 /* Name Styling */
@@ -293,3 +293,70 @@ body.dark-mode .navbar ul li a:hover {
       to { opacity: 1; transform: translateY(0); }
     }
 
+/* Social Icons Container */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem; /* Space between icons */
+  margin-top: 3rem; /* Adjust spacing relative to other content */
+  flex-wrap: wrap; /* Ensure icons wrap if they don't fit in one row */
+}
+
+/* Icon Styling (Common for All Icons) */
+.social-icons .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px; /* Set uniform container size for all icons */
+  height: 60px;
+  overflow: hidden; /* Prevent large icons from overflowing */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover animation */
+}
+
+/* Styling for SVGs and Images (LeetCode, CodeChef) */
+.social-icons .icon img {
+  width: 65%; /* Scale the image to fit the container width */
+  height: 65%; /* Scale the image to fit the container height */
+  object-fit: contain; /* Maintain aspect ratio of SVGs */
+}
+
+/* Styling for Font Awesome Icons */
+.social-icons .icon i {
+  font-size: 2.0rem; /* Match size to SVG icons */
+  color: var(--icon-color); /* Adaptive color for light/dark mode */
+}
+
+/* Hover Effect */
+.social-icons .icon:hover {
+  transform: scale(1.15); /* Slight zoom on hover */
+  color: var(--hover-color); /* Change color on hover */
+}
+
+.social-icons .icon img:hover {
+  transform: scale(1.15); /* Apply hover zoom to SVGs */
+}
+
+/* Floating Animation */
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px); /* Float upwards slightly */
+  }
+}
+
+.social-icons .icon {
+  animation: floating 3s infinite ease-in-out; /* Add floating effect */
+}
+
+/* Adaptive Theme Colors */
+body.light-mode {
+  --icon-color: #333; /* Dark icons for light theme */
+  --hover-color: #0077b5; /* Blue hover color */
+}
+
+body.dark-mode {
+  --icon-color: #ccc; /* Light icons for dark theme */
+  --hover-color: #1da1f2; /* Light blue hover color */
+}
