@@ -68,30 +68,105 @@
 </div>
 </section>
 
-<section class="section" id="blogs-section">
-    <div class="blogs-container">
-        <!-- Left Part: Cards Layout -->
-        <div class="cards-layout">
-            <div class="card card-large">Card 1</div>
-            <div class="card card-small">Card 2</div>
-            <div class="card card-medium">Card 3</div>
-            <div class="card card-small">Card 4</div>
-            <div class="card card-small">Card 5</div>
-            <div class="card card-small">Card 6</div>
-            <div class="card card-small">Card 7</div>
+<section class="section stats-section py-12">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="card theme-card shadow-md rounded-lg p-6 flex flex-col items-center text-center">
+                <div class="text-sm text-gray-500 font-semibold self-start">Top</div>
+                <div class="text-3xl font-extrabold my-auto">21%</div>
+                <div class="text-sm mt-4">Leetcode Solved 100+ DSA problems. Rating 1600+</div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card theme-card shadow-md rounded-lg p-6 flex flex-col items-center text-center">
+                <div class="text-sm text-gray-500 font-semibold self-start">Rated</div>
+                <div class="text-3xl font-extrabold my-auto">1400+</div>
+                <div class="text-sm mt-4">on Codechef Solved a total of 100+ Problems</div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card theme-card shadow-md rounded-lg p-6 flex flex-col items-center text-center">
+                <div class="text-sm text-gray-500 font-semibold self-start">Blogs</div>
+                <div class="text-3xl font-extrabold my-auto">10+</div>
+                <div class="text-sm mt-4">Blogs across Dev.to and Hashnode</div>
+            </div>
         </div>
 
-        <!-- Right Part: "BLOGS" Text -->
-        <div class="vertical-text">
-            <span>B</span>
-            <span>L</span>
-            <span>O</span>
-            <span>G</span>
-            <span>S</span>
+        <div class="grid grid-cols-2 gap-6 justify-center mt-6">
+            <!-- Card 4 -->
+            <div class="card theme-card shadow-md rounded-lg p-6 flex flex-col items-center text-center">
+                <div class="text-sm text-gray-500 font-semibold self-start">Solutions</div>
+                <div class="text-3xl font-extrabold my-auto">50+</div>
+                <div class="text-sm mt-4">Solutions explained across Leetcode and Codechef. 100+ Views</div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card theme-card shadow-md rounded-lg p-6 flex flex-col items-center text-center">
+                <div class="text-sm text-gray-500 font-semibold self-start">Projects</div>
+                <div class="text-3xl font-extrabold my-auto">50+</div>
+                <div class="text-sm mt-4">Successful DDI migration and low latency setup</div>
+            </div>
         </div>
+    </div>
+    <div class="background-grid absolute inset-0 pointer-events-none opacity-30">
+        <!-- Grid Items -->
+        <script>
+            // Generate grid dynamically
+            const gridContainer = document.querySelector('.background-grid');
+            for (let i = 0; i < 500; i++) {
+              const gridItem = document.createElement('div');
+              gridItem.className = 'grid-square';
+              gridContainer.appendChild(gridItem);
+            }
+        </script>
     </div>
 </section>
 
+
+
+<section class="skills-section py-12 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-8">My Skills</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6">
+            <!-- Skill 1 -->
+            <div class="flex flex-col items-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML" class="w-12 h-12">
+                <span class="mt-2 text-sm font-medium">HTML</span>
+            </div>
+
+            <!-- Skill 2 -->
+            <div class="flex flex-col items-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS" class="w-12 h-12">
+                <span class="mt-2 text-sm font-medium">CSS</span>
+            </div>
+
+            <!-- Skill 3 -->
+            <div class="flex flex-col items-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript" class="w-12 h-12">
+                <span class="mt-2 text-sm font-medium">JavaScript</span>
+            </div>
+
+            <!-- Skill 4 -->
+            <div class="flex flex-col items-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/919/919851.png" alt="React" class="w-12 h-12">
+                <span class="mt-2 text-sm font-medium">React</span>
+            </div>
+
+            <!-- Skill 5 -->
+            <div class="flex flex-col items-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="Node.js" class="w-12 h-12">
+                <span class="mt-2 text-sm font-medium">Node.js</span>
+            </div>
+
+            <!-- Skill 6 -->
+            <div class="flex flex-col items-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" alt="Python" class="w-12 h-12">
+                <span class="mt-2 text-sm font-medium">Python</span>
+            </div>
+        </div>
+    </div>
+</section>
 <script src="/js/script.js"></script>
 </body>
 </html>

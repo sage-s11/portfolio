@@ -381,76 +381,6 @@ body.dark-mode {
   transform: translateY(0); /* Move into position */
 }
 
-/* Blogs Section */
-#blogs-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-  background-color: #f8f9fa; /* Light background for contrast */
-}
-
-/* Blogs Container */
-.blogs-container {
-  display: flex;
-  width: 80%;
-  gap: 2rem; /* Space between cards and vertical text */
-}
-
-/* Cards Layout (Left Side) */
-.cards-layout {
-  display: grid;
-  width: 80%; /* 80% of the container */
-  grid-template-columns: repeat(3, 1fr); /* 3 uneven columns */
-  gap: 1rem; /* Space between cards */
-}
-
-.card {
-  background-color: #333;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Uneven Card Sizes */
-.card-large {
-  grid-column: span 2; /* Span two columns */
-  height: 300px;
-}
-
-.card-medium {
-  height: 200px;
-}
-
-.card-small {
-  height: 150px;
-}
-
-/* Vertical Text (Right Side) */
-.vertical-text {
-  width: 20%; /* 20% of the container */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-  text-transform: uppercase;
-}
-
-.vertical-text span {
-  writing-mode: vertical-rl; /* Rotate text vertically */
-  transform: rotate(180deg); /* Flip the text to read top-down */
-  margin: 0.2rem 0; /* Space between letters */
-}
-
-
 #hero-section {
   display: flex;
   flex-direction: column; /* Stack children vertically */
@@ -464,3 +394,39 @@ body.dark-mode {
 .social-icons {
   margin-top: 1rem; /* Add spacing between social icons and center-container */
 }
+
+/* Theme-Ready Styling for Cards */
+.theme-card {
+  background-color: var(--card-bg, #ffffff); /* Default light background */
+  color: var(--card-text, #333333); /* Default dark text color */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.theme-card:hover {
+  transform: translateY(-5px); /* Lift slightly on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Dark Mode Variables */
+body.dark-mode .theme-card {
+  --card-bg: #333333; /* Dark background for cards */
+  --card-text: #f8f8f8; /* Light text for cards */
+}
+
+/* Compact Card Dimensions */
+.theme-card {
+  max-width: 280px; /* Limit card width */
+  height: auto; /* Auto-adjust height */
+  margin: 0 auto; /* Center cards horizontally */
+  padding: 1.5rem; /* Add consistent padding */
+  border-radius: 12px; /* Rounded corners */
+}
+
+/* Text Styling */
+.theme-card .text-3xl {
+  font-size: 2rem; /* Slightly larger font size */
+  font-weight: 800; /* Bolder font weight */
+}
+
+
