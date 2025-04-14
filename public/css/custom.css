@@ -123,56 +123,63 @@ body.dark-mode {
 }
 
 /* Navbar Container */
+
+/* === Navbar Base Styles === */
 .navbar {
-  padding: 8px 16px;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  z-index: 1000;
-  position: fixed;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #000; /* Black navbar background */
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
 }
 
-/* Navbar Items */
+/* === Light Mode === */
+body.light-mode .navbar {
+  background-color: #f2f2f2;
+  border: 1px solid #d1d1d1;
+  color: #000;
+}
+
+/* === Dark Mode === */
+body.dark-mode .navbar {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid #333;
+  color: #fff;
+}
+
+/* === Navbar Items === */
 .navbar-hover-effect a {
   position: relative;
   display: inline-block;
-  padding: 8px 16px; /* Adjust padding for better spacing */
-  font-size: 14px; /* Adjust font size */
-  text-decoration: none; /* Remove underline */
-  border-radius: 20px; /* Rounded edges for the hover effect */
-  background-color: transparent; /* Transparent background by default */
-  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  padding: 8px 16px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 20px;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
 }
 
+/* === Text Colors === */
 body.light-mode .navbar-hover-effect a {
-  color: #000; /* Black text for light mode */
+  color: #000;
 }
 
 body.dark-mode .navbar-hover-effect a {
-  color: #fff; /* White text for dark mode */
+  color: #fff;
 }
 
-/* Hover Effect: Background and Text Color */
+/* === Hover States === */
 body.light-mode .navbar-hover-effect a:hover {
-  background-color: #ddd; /* Light gray background for hover in light mode */
-  color: #000; /* Black text on hover in light mode */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  background-color: #ddd;
+  color: #000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 body.dark-mode .navbar-hover-effect a:hover {
-  background-color: #444; /* Slightly lighter background for hover in dark mode */
-  color: #fff; /* White text on hover in dark mode */
-  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2); /* Subtle shadow */
+  background-color: #444;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2);
 }
 
-/* Hover Effect: Fluid Background Expansion */
+/* === Background Animation Effect === */
 .navbar-hover-effect a::before {
   content: '';
   position: absolute;
@@ -180,38 +187,29 @@ body.dark-mode .navbar-hover-effect a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 20px; /* Rounded edges match the item */
-  transform: scale(0); /* Start with no scale */
-  z-index: -1; /* Place behind the text */
-  transition: transform 0.4s ease-in-out; /* Smooth scaling effect */
+  border-radius: 20px;
+  transform: scale(0);
+  z-index: -1;
+  transition: transform 0.4s ease-in-out;
 }
 
 body.light-mode .navbar-hover-effect a::before {
-  background-color: #ddd; /* Light gray background for hover in light mode */
+  background-color: #ddd;
 }
 
 body.dark-mode .navbar-hover-effect a::before {
-  background-color: #444; /* Slightly lighter background for hover in dark mode */
+  background-color: #444;
 }
 
-body.light-mode .navbar-hover-effect a:hover::before,
-body.dark-mode .navbar-hover-effect a:hover::before {
-  transform: scale(1); /* Fully expand the background */
+.navbar-hover-effect a:hover::before {
+  transform: scale(1);
 }
 
-body.light-mode .navbar {
-  background-color: #f2f2f2;
-  border: 1px solid #d1d1d1;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: #000;
+
+#mobile-menu {
+  transition: all 0.3s ease;
 }
 
-body.dark-mode .navbar {
-  background-color: rgba(0, 0, 0, 0.8);
-  border: 1px solid #333;
-  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-  color: #fff;
-}
 
 /* Section Styling */
 .section {

@@ -4,7 +4,6 @@
 	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ffffff"> 
     <title>My New Hugo Site</title>
 
@@ -21,14 +20,24 @@
 </head>
 <body class="bg-gray-800 text-gray-300 flex flex-col items-center justify-center min-h-screen transition-colors duration-500" id="theme">
 
-<nav class="navbar bg-gray-700 shadow-md rounded-full px-6 py-2 fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
-    <ul class="navbar-hover-effect flex space-x-4">
-        <li><a href="#" class="text-sm neon-hover px-4 py-1 rounded">Home</a></li>
-        <li><a href="#" class="text-sm neon-hover px-4 py-1 rounded">About</a></li>
-        <li><a href="#" class="text-sm neon-hover px-4 py-1 rounded">Services</a></li>
-        <li><a href="#" class="text-sm neon-hover px-4 py-1 rounded">Contact</a></li>
-    </ul>
+<nav class="navbar bg-gray-700 dark:bg-black light:bg-white shadow-md rounded-full px-6 py-2 fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-fit sm:w-auto">
+    <div class="flex items-center justify-between sm:space-x-4">
+        
+        <button id="menu-toggle" class="sm:hidden text-white dark:text-white text-xl focus:outline-none">
+            &#9776;
+        </button>
+
+        
+        <ul id="navbar-links" class="navbar-hover-effect hidden sm:flex space-x-4">
+            <li><a href="#" class="text-sm neon-hover px-4 py-1 rounded">Home</a></li>
+            <li><a href="#" class="text-sm neon-hover px-4 py-1 rounded">About</a></li>
+            <li><a href="#" class="text-sm neon-hover px-4 py-1 rounded">Services</a></li>
+            <li><a href="#" class="text-sm neon-hover px-4 py-1 rounded">Contact</a></li>
+        </ul>
+    </div>
 </nav>
+
+
 
 <div class="toggle-container" id="theme-toggle">
     <div class="toggle-icon sun">☀️</div>

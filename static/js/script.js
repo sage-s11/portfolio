@@ -111,3 +111,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sections.forEach((section) => observer.observe(section));
 });
+
+
+  const toggle = document.getElementById("menu-toggle");
+  const links = document.getElementById("navbar-links");
+
+  toggle.addEventListener("click", () => {
+    links.classList.toggle("hidden");
+    links.classList.toggle("flex");
+    links.classList.toggle("flex-col");
+    links.classList.toggle("absolute");
+    links.classList.toggle("top-14");
+    links.classList.toggle("bg-gray-100");
+    links.classList.toggle("dark:bg-black");
+    links.classList.toggle("rounded-lg");
+    links.classList.toggle("p-4");
+  });
+
+  // ✅ Hide on outside click
+  document.addEventListener("click", (event) => {
+    if (!toggle.contains(event.target) && !links.contains(event.target)) {
+      if (!links.classList.contains("sm:flex")) {
+        links.classList.add("hidden");
+        links.classList.remove("flex", "flex-col", "absolute", "top-14", "bg-gray-100", "dark:bg-black", "rounded-lg", "p-4");
+      }
+    }
+  });
+
+  // ✅ Hide on screen resize
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 640) {
+      links.classList.add("sm:flex");
+      links.classList.remove("hidden", "flex", "flex-col", "absolute", "top-14", "bg-gray-100", "dark:bg-black", "rounded-lg", "p-4");
+    } else {
+      links.classList.remove("sm:flex");
+      links.classList.add("hidden");
+    }
+  });
