@@ -24,164 +24,82 @@ body.dark-mode {
   color: #fff;
 }
 
-/* Dark Mode Toggle Button */
-.mode-toggle {
-  position: fixed;
-  top: 20px;
-  right: 40px; /* Increase this value */
-  font-size: 24px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.mode-toggle:hover {
-  transform: scale(1.1);
-}
-
-/* Navbar Styles */
-.navbar {
-  padding: 2px 10px; /* Reduced padding for a thinner navbar */
-  height: auto; /* Automatically adjust height based on content */
+.name {
   display: flex;
+  gap: 2rem; /* Space between first and last name */
   justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
-  z-index: 50;
+  font-size: 4rem; /* Default size for the name */
+  margin: 0.5rem 0; /* Space around the name */
+  opacity: 0; /* Start hidden */
+  transform: translateY(20px); /* Start slightly below */
+  transition: opacity 1s ease, transform 1s ease; /* Smooth fade-in and slide */
 }
 
-/* Light Mode Navbar */
-body.light-mode .navbar {
-  background-color: #f2f2f2; /* Slightly darker light background */
-  border: 1px solid #d1d1d1; /* Visible boundary */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  color: #000; /* Black text */
+/* Individual styling for first name */
+.first-name {
+  font-family: 'Deutschlander 2.0', sans-serif; /* Use custom font */
+  font-size: 10rem; /* Large font for hierarchy */
 }
 
-/* Dark Mode Navbar */
-body.dark-mode .navbar {
-  background-color: rgba(0, 0, 0, 0.8); /* Dark background */
-  border: 1px solid #333; /* Dark boundary */
-  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Subtle shadow for dark mode */
-  color: #fff; /* White text */
+/* Individual styling for last name */
+.last-name {
+  font-family: 'Deutschlander 2.0', sans-serif; /* Use custom font */
+  font-size: 10rem; /* Large font for hierarchy */
 }
 
-/* Navbar Items */
-.navbar-hover-effect {
-  display: flex;
-  gap: 15px; /* Reduced gap for a more compact look */
-  position: relative;
-  margin: 0;
-  padding: 0;
+/* Fade-in effect */
+.name.fade-in {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Slide into position */
 }
 
-/* Navbar Links */
-.navbar-hover-effect a {
-  position: relative;
-  display: inline-block;
-  padding: 4px 8px; /* Smaller padding for thinner links */
-  color: inherit;
-  font-size: 13px; /* Slightly smaller font size for a compact design */
-  text-decoration: none;
-  border-radius: 20px; /* Adjusted radius for links */
-  background-color: transparent;
-  transition: all 0.3s ease-in-out;
-  z-index: 10;
+/* Fade-out effect (optional, if needed for scroll behavior) */
+.name.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-/* Hover Effect: Soft Red Fluid Transition */
-.navbar-hover-effect a:hover {
-  background-color: rgba(255, 99, 71, 0.8); /* Soft red hover background */
-  color: #fff; /* White text on hover */
-  box-shadow: 0 4px 10px rgba(255, 99, 71, 0.6); /* Glow effect */
-  transition: all 0.3s ease-in-out;
-}
-
-/* Fluid-Like Effect: Shared Background Transition */
-.navbar-hover-effect a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 99, 71, 1); /* Soft red background */
-  border-radius: 40px; /* Match border radius of navbar */
-  transform: scale(0); /* Start with no scale */
-  z-index: -1;
-  transition: transform 0.6s ease-in-out; /* Smooth scaling effect */
-}
-
-.navbar-hover-effect a:hover::before {
-  transform: scale(1); /* Fully expand the background */
-}
-
-/* Navbar List */
-.navbar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 15px; /* Reduced gap for compact links */
-}
-
-/* Navbar Links in List */
-.navbar ul li a {
-  text-decoration: none;
-  color: inherit;
-  font-size: 13px; /* Slightly smaller font size */
-  transition: color 0.3s ease;
-}
-
-/* Hover Effects for Links */
-body.light-mode .navbar ul li a:hover {
-  color: #555; /* Slightly darker hover color for light mode */
-}
-
-body.dark-mode .navbar ul li a:hover {
-  color: #ccc; /* Slightly lighter hover color for dark mode */
-}
-
-/* Toggle Container */
+/* Theme Toggle Button */
 .toggle-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 60px;
-  height: 30px;
-  background-color: #e0e0e0;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: background-color 0.4s ease;
+  position: fixed; /* Ensure it stays fixed relative to the viewport */
+  top: 20px;       /* 20px from the top */
+  right: 20px;     /* 20px from the right */
+  z-index: 1000;   /* Ensure it stays on top of other elements */
+  width: 60px;     /* Container width */
+  height: 30px;    /* Container height */
+  display: flex;   /* Flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space between icons */
+  background-color: #e0e0e0; /* Toggle background */
+  border-radius: 50px; /* Rounded corners */
+  padding: 5px; /* Inner spacing */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  cursor: pointer; /* Pointer cursor for interaction */
+  transition: background-color 0.4s ease; /* Smooth transition for background */
 }
 
 .toggle-container.dark {
-  background-color: #333;
+  background-color: #333; /* Dark mode background */
 }
 
 /* Toggle Icons */
 .toggle-icon {
-  width: 20px;
-  height: 20px;
-  display: flex;
+  width: 20px;  /* Icon width */
+  height: 20px; /* Icon height */
+  display: flex; /* Center icon content */
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  border-radius: 50%;
-  transition: color 0.4s ease, transform 0.4s ease;
+  font-size: 14px; /* Icon font size */
+  border-radius: 50%; /* Makes icons circular */
+  transition: color 0.4s ease, transform 0.4s ease; /* Smooth effects */
 }
 
 .sun {
-  color: #ffd700;
+  color: #ffd700; /* Sun icon color */
 }
 
 .moon {
-  color: #999;
+  color: #999; /* Moon icon color */
 }
 
 /* Toggle Knob */
@@ -196,7 +114,7 @@ body.dark-mode .navbar ul li a:hover {
 }
 
 .toggle-container.dark .toggle-knob {
-  transform: translateX(30px);
+  transform: translateX(30px); /* Move knob to the right */
   background-color: #ffd700;
 }
 
@@ -204,229 +122,190 @@ body.dark-mode .navbar ul li a:hover {
   color: #fff;
 }
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@400;700&display=swap');
+/* Navbar Container */
+.navbar {
+  padding: 8px 16px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  z-index: 1000;
+  position: fixed;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000; /* Black navbar background */
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
 
-.center-container {
+/* Navbar Items */
+.navbar-hover-effect a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 16px; /* Adjust padding for better spacing */
+  font-size: 14px; /* Adjust font size */
+  text-decoration: none; /* Remove underline */
+  border-radius: 20px; /* Rounded edges for the hover effect */
+  background-color: transparent; /* Transparent background by default */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+body.light-mode .navbar-hover-effect a {
+  color: #000; /* Black text for light mode */
+}
+
+body.dark-mode .navbar-hover-effect a {
+  color: #fff; /* White text for dark mode */
+}
+
+/* Hover Effect: Background and Text Color */
+body.light-mode .navbar-hover-effect a:hover {
+  background-color: #ddd; /* Light gray background for hover in light mode */
+  color: #000; /* Black text on hover in light mode */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+body.dark-mode .navbar-hover-effect a:hover {
+  background-color: #444; /* Slightly lighter background for hover in dark mode */
+  color: #fff; /* White text on hover in dark mode */
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2); /* Subtle shadow */
+}
+
+/* Hover Effect: Fluid Background Expansion */
+.navbar-hover-effect a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px; /* Rounded edges match the item */
+  transform: scale(0); /* Start with no scale */
+  z-index: -1; /* Place behind the text */
+  transition: transform 0.4s ease-in-out; /* Smooth scaling effect */
+}
+
+body.light-mode .navbar-hover-effect a::before {
+  background-color: #ddd; /* Light gray background for hover in light mode */
+}
+
+body.dark-mode .navbar-hover-effect a::before {
+  background-color: #444; /* Slightly lighter background for hover in dark mode */
+}
+
+body.light-mode .navbar-hover-effect a:hover::before,
+body.dark-mode .navbar-hover-effect a:hover::before {
+  transform: scale(1); /* Fully expand the background */
+}
+
+body.light-mode .navbar {
+  background-color: #f2f2f2;
+  border: 1px solid #d1d1d1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+body.dark-mode .navbar {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid #333;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Section Styling */
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px; /* Added consistent padding */
+  box-sizing: border-box;
+  opacity: 1; /* Ensure sections are visible */
+  transform: translateY(0); /* Reset any transform */
+}
+
+/* Hero Section */
+#hero-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  padding-top: 95px;
-  margin-top: -20px;
+  gap: 20px;
 }
 
-/* Name Styling */
-.name {
+#hero-section img {
+  max-width: 80%; /* Restrict logo size */
+  height: auto;
+}
+
+/* Social Icons */
+.social-icons {
   display: flex;
+  justify-content: center;
   gap: 2rem;
-  justify-content: center;
-  font-size: 4rem;
-  margin: 0.5rem 0;
-  opacity: 0; /* Start hidden */
-  transform: translateY(20px); /* Start slightly below */
-  transition: opacity 1s ease, transform 1s ease; /* Smooth fade-in and slide */
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
 
-.first-name {
-  font-family: 'Deutschlander 2.0', sans-serif;/* Use Redound font */
-  font-size: 10rem; /* Slightly bigger to give hierarchy */
-}
-
-.last-name {
-  font-family: 'Deutschlander 2.0', sans-serif;/* Use Redound font */
-  font-size: 10rem;
-}
-
-/* Fade-in animation */
-.name.fade-in {
-  opacity: 1;
-  transform: translateY(0); /* Slide into position */
-}
-
-/* Fade-out animation (optional, if needed for scroll behavior) */
-.name.fade-out {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-/* Typewriter Styling */
-.typewriter {
-  font-family: 'Courier New', monospace !important;
-  font-size: 1.1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid currentColor;
-  animation: blink-caret 0.75s step-end infinite;
-  width: fit-content; /* Don't use ch unless you *really* need to */
-  margin: 0 auto;
-  text-align: center;
-  display: inline-block;
-}
-
-
-@keyframes blink-caret {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: black; }
-}
-
-
-
-    /* Cursor blinking effect */
-    @keyframes blink {
-      from {
-        border-right-color: #fff;
-      }
-      to {
-        border-right-color: transparent;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .typewriter {
-        font-size: 2.5rem;
-      }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-/* Social Icons Container */
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem; /* Space between icons */
-  margin-top: 3rem; /* Adjust spacing relative to other content */
-  flex-wrap: wrap; /* Ensure icons wrap if they don't fit in one row */
-}
-
-/* Icon Styling (Common for All Icons) */
 .social-icons .icon {
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px; /* Set uniform container size for all icons */
-  height: 60px;
-  overflow: hidden; /* Prevent large icons from overflowing */
-  transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover animation */
+  transition: transform 0.3s ease;
 }
 
-/* Styling for SVGs and Images (LeetCode, CodeChef) */
-.social-icons .icon img {
-  width: 65%; /* Scale the image to fit the container width */
-  height: 65%; /* Scale the image to fit the container height */
-  object-fit: contain; /* Maintain aspect ratio of SVGs */
-}
-
-/* Styling for Font Awesome Icons */
-.social-icons .icon i {
-  font-size: 2.0rem; /* Match size to SVG icons */
-  color: var(--icon-color); /* Adaptive color for light/dark mode */
-}
-
-/* Hover Effect */
 .social-icons .icon:hover {
-  transform: scale(1.15); /* Slight zoom on hover */
-  color: var(--hover-color); /* Change color on hover */
+  transform: scale(1.1);
 }
 
-.social-icons .icon img:hover {
-  transform: scale(1.15); /* Apply hover zoom to SVGs */
-}
-
-/* Floating Animation */
-@keyframes floating {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px); /* Float upwards slightly */
-  }
-}
-
-.social-icons .icon {
-  animation: floating 3s infinite ease-in-out; /* Add floating effect */
-}
-
-/* Adaptive Theme Colors */
-body.light-mode {
-  --icon-color: #333; /* Dark icons for light theme */
-  --hover-color: #0077b5; /* Blue hover color */
-}
-
-body.dark-mode {
-  --icon-color: #ccc; /* Light icons for dark theme */
-  --hover-color: #1da1f2; /* Light blue hover color */
-}
-
-
-
-/* General Section Styling */
-.section {
-  min-height: 100vh; /* Full viewport height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0; /* Invisible by default */
-  transform: translateY(50px); /* Slightly below viewport */
-  transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth transition */
-}
-
-/* Active Class for Visible Sections */
-.section.active {
-  opacity: 1; /* Fully visible */
-  transform: translateY(0); /* Move into position */
-}
-
-#hero-section {
-  display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Center horizontally */
-  justify-content: flex-start; /* Align content to the top */
-  padding-top: 35px; /* Adjust padding to create space from the top */
-  gap: 2rem; /* Add spacing between center-container and social-icons */
-}
-
-/* Styling for Social Icons (Optional Enhancements) */
-.social-icons {
-  margin-top: 1rem; /* Add spacing between social icons and center-container */
-}
-
-/* Theme-Ready Styling for Cards */
+/* Skills Section */
 .theme-card {
-  background-color: var(--card-bg, #ffffff); /* Default light background */
-  color: var(--card-text, #333333); /* Default dark text color */
+  max-width: 280px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: var(--card-bg, #ffffff);
+  color: var(--card-text, #333333);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover Effect */
 .theme-card:hover {
-  transform: translateY(-5px); /* Lift slightly on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Dark Mode Variables */
 body.dark-mode .theme-card {
-  --card-bg: #333333; /* Dark background for cards */
-  --card-text: #f8f8f8; /* Light text for cards */
+  --card-bg: #333333;
+  --card-text: #f8f8f8;
 }
 
-/* Compact Card Dimensions */
-.theme-card {
-  max-width: 280px; /* Limit card width */
-  height: auto; /* Auto-adjust height */
-  margin: 0 auto; /* Center cards horizontally */
-  padding: 1.5rem; /* Add consistent padding */
-  border-radius: 12px; /* Rounded corners */
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .navbar-hover-effect {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #hero-section {
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .social-icons .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .theme-card {
+    max-width: 90%; /* Ensure cards fit smaller screens */
+  }
 }
-
-/* Text Styling */
-.theme-card .text-3xl {
-  font-size: 2rem; /* Slightly larger font size */
-  font-weight: 800; /* Bolder font weight */
-}
-
-
