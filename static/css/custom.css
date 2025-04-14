@@ -255,9 +255,21 @@ body.dark-mode .navbar-hover-effect a::before {
   transition: transform 0.3s ease;
 }
 
+.social-icons .icon img {
+  width: 40px;  /* Set image size for LeetCode and CodeChef */
+  height: 40px; /* Set image size for LeetCode and CodeChef */
+}
+
+/* Increase size of font-based icons like LinkedIn, GitHub, etc. */
+.social-icons .icon i {
+  font-size: 28px;  /* Increase the size of font-based icons */
+}
+
 .social-icons .icon:hover {
   transform: scale(1.1);
 }
+
+
 
 /* Skills Section */
 .theme-card {
@@ -306,4 +318,25 @@ body.dark-mode .theme-card {
   .theme-card {
     max-width: 90%; /* Ensure cards fit smaller screens */
   }
+}
+
+
+.chip {
+  padding: 0.5rem 1rem;
+  background-color: #e5e7eb; /* light gray */
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode .chip {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+.chip:hover {
+  background-color: #d1d5db;
+  cursor: default;
 }
